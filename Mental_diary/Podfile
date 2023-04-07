@@ -1,0 +1,20 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '13.0'
+inhibit_all_warnings! 
+use_frameworks!
+
+target 'Mental_diary' do
+    pod 'RxSwift', '6.5.0'
+    pod 'RxCocoa', '6.5.0'
+    pod 'SwiftLint'
+    pod 'naveridlogin-sdk-ios'
+  # Pods for Study_Room
+
+end
+inhibit_all_warnings! # cocoapods의 swiftlint 경고 메시지 해제
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    puts target.name
+  end
+end

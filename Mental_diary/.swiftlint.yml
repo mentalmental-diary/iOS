@@ -1,0 +1,86 @@
+disabled_rules: # rule identifiers to exclude from running
+ # - colon
+ # - comma
+  - control_statement     # "if,for,while,do,switch 문의 조건식에 괄호가 없어야한다."는 조건
+  - fallthrough #switch 구문에서 fallthrough를 허용한다.
+ # - trailing_whitespace  # 라인의 끝에 빈문자를 허용하지 않는다.(아래에서 속성 수정)
+ # - file_length
+  - identifier_name
+  - empty_count
+  - cyclomatic_complexity
+  - function_parameter_count
+  - type_name
+ # - type_body_length
+  - mark
+  - function_body_length
+ # - legacy_cggeometry_functions
+ # - legacy_constructor
+ # - force_cast
+  - missing_docs
+  - nesting
+  - vertical_parameter_alignment
+  - multiple_closures_with_trailing_closure
+  - notification_center_detachment
+  - orphaned_doc_comment
+  - implicit_getter
+  - shorthand_operator
+  - inclusive_language
+  - comment_spacing
+  - xctfail_message
+# - todo
+opt_in_rules: # some rules are only opt-in
+  - first_where
+  - empty_count
+  - missing_docs
+ # - cyclomatic_complexity
+ # - implicitly_unwrapped_optional
+  # Find all the available rules by running:
+  # swiftlint rules
+whitelist_rules:
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
+  - GPTests
+  - GP/Module/ActiveLabel # 오픈소스
+  - GP/Module/DevelopSetting/DevelopSettingItems/Inapp/DevelopSettingInappScheme.swift
+  - GP/Utility/Localization.swift
+  - LiveCommerceSDK-iOS # submodule 프로젝트에 자체적으로 swiftlint 적용
+  # - Source/ExcludedFolder
+  # - Source/ExcludedFile.swift
+# configurable rules can be customized from this configuration file
+# binary rules can set their severity level
+force_cast: warning # implicitly
+force_try:
+  severity: warning # explicitly
+# rules that have both warning and error levels, can set just the warning level
+# implicitly
+line_length: 530
+# they can set both implicitly with an array
+type_body_length:
+  - 900 # warning
+  - 1000 # error
+# or they can set both explicitly
+file_length:
+  warning: 1000
+  error: 2000
+# naming rules can set warnings/errors for min_length and max_length
+# additionally they can set excluded names
+#type_name:
+#  min_length: 4 # only warning
+#  max_length: # warning and error
+#    warning: 40
+#    error: 50
+#  excluded: iPhone # excluded via string
+#function_parameter_count:
+#  warning: 3
+#  error: 6
+#cyclomatic_complexity:
+#  warning: 2
+#  error: 6
+trailing_whitespace:
+  ignores_empty_lines: true   # 빈 라인(문자가 없는) 허용
+  ignores_comments: false     # 주석에서 라인 마지막에 빈문자 비허용
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle)
+#implicitly_unwrapped_optional:
+#  mode: all
+
